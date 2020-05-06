@@ -3,7 +3,43 @@ using namespace std;
 
 class RecursiveBinarySearchTree;
 /*-----------------------------------
+    BinarySearchTree bst(arr,n);
 
+    //-------------- BUILDING BST -------------------------------
+    DBsep1()
+    bst.build("recursive");
+    bst.traversal("iterative","levelorder");
+    bst.traversal("recursive","levelorder");
+    DBsep2()
+
+    //-------------- TRAVERSAL BST -------------------------------
+    DBsep1()
+    bst.traversal("recursive","preorder");
+    bst.traversal("recursive","inorder");
+    bst.traversal("recursive","postorder");
+    DBsep2()
+
+    //------------- SEARCHING IN BST ----------------------------
+    DBsep1()
+    DBx(bst.searchEle("recursive", 9))
+    DBx(bst.searchEle("iterative", 2))
+    DBsep2()
+
+    //------------- FINDING MIN & MAX ELE IN BST ----------------
+    DBsep1()
+    DBx(bst.searchMinMaxEle("recursive",0)) //1 max
+    DBx(bst.searchMinMaxEle("recursive",1)) //1 max
+    DBx(bst.searchMinMaxEle("iterative",0)) //0 min
+    DBx(bst.searchMinMaxEle("iterative",1)) //0 min
+    DBsep2()
+
+    //------------- FINDING HEIGHT OF NODE----------------
+    // height of node = no of edges from longest path from node to lead
+    // height of root = no of edges from longest path from root to leaf
+    DBsep1()
+    DBx(bst.heightOfNode("iterative", 4));
+    DBx(bst.heightOfNode("recursive", 4));
+    DBsep2();
 ------------------------------------*/
 class BinarySearchTree;
 
