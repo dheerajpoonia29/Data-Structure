@@ -286,6 +286,28 @@ public:
 
         return root;
     }
+
+    BstNode* lcs(BstNode* root, int v1, int v2){
+    	if(root==nullptr)   return root;
+
+        while(root){
+            if(root->data==v1 || root->data==v2)
+                return ans;
+            else if(root->data>v1 && root->data>v2){
+                ans = root;
+                root = root->left;
+            }
+            else if(root->data<v1 && root->data<v2){
+                ans = root;
+                root = root->right;
+            }
+            else{
+                return root;
+            }
+        }
+        return root;
+    }
+
 };
 
 class BinarySearchTree: public Recursive, public Iterative{
