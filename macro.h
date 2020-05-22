@@ -9,8 +9,8 @@ using namespace std;
 #define el                  cout<<"\n"
 #define np                  nullptr
 #define endl								"\n"
-#define fastio              ios_base::sync_with_stdio(0); cin.tie(0); cout.tie(0);
-
+#define nothing_is              ios_base::sync_with_stdio(0); cin.tie(0); cout.tie(0);
+#define hard								int n, sum, res, i, j;
 #define pb 									push_back
 #define mp                  make_pair
 
