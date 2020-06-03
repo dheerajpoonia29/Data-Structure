@@ -1,16 +1,16 @@
 /*
-tc(nlogn)	sc(logn)
+tc(nlogn)	sc(logn)/inplace
 */
-void sortString(string &str) 
+string sortString1(string str) 
 { 
    sort(str.begin(), str.end()); 
-   cout << str; 
+   return str;
 } 
 
 /*
 tc(n)	 sc(1)
 */
-void sortString(string &str) 
+string sortString2(string str) 
 { 
 		int MAX_CHAR = 26;
 
@@ -30,7 +30,10 @@ void sortString(string &str)
       
     // Traverse the hash array and print  
     // characters 
+		str = "";
     for (int i=0;i<MAX_CHAR;i++) 
         for (int j=0;j<charCount[i];j++) 
-            cout << (char)('a'+i); 
+            str+=(char)('a'+i);
+		
+		return str;
 } 

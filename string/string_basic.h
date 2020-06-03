@@ -28,3 +28,21 @@ string check4(){
 	// printf("%s", check3()); //	warning: format ‘%s’ expects argument of type ‘char*’
 	// printf("%c", check3()); // warning: format ‘%s’ expects argument of type ‘char*’
 }
+
+int[128] findCharArr(string s){
+	int charArr[128] = {0};
+	for(auto ch: s){
+		charArr[(int)(ch)]++;
+	}
+
+	return charArr;
+	/*
+	way of extracting
+	for(int i=0; i<128; i++){
+		if(charArr[i]==1){
+			non_repeat_char = (char)(i);
+			break;
+		}
+	}
+	*/
+}

@@ -1,12 +1,14 @@
 #include "../macro.h"
 
 // PROBLEM LINK :- https://www.codechef.com/submit/CHEFSHIP
-/*
+/*_________________________________________________________
 	GIVEN: string 
 				 l,r of substring1 
 				 l,r of substring2
 				 over q quries
-	FIND: count how many times substring1==substring2 
+	FIND: 
+		count how many times 
+		substring1==substring2 
 */
 class RollingHash{
 public:	
@@ -14,7 +16,7 @@ public:
 	int MOD = 1000000007;
 	ll p = 31; // prime value for lower case p = 53 if upper case + lower case
 	ll hashf[MAX], power[MAX];
-	void hsh(string str, int n){
+	void makeHash(string str, int n){
     power[0]=1;
     for(int i=n-1; i>=0; i--){
         hashf[i] = ((hashf[i+1]*p)%MOD+(str[i]-'a'+1))%MOD;
@@ -23,7 +25,7 @@ public:
     power[n] = (power[n-1]*p)%MOD;
 	}
 
-	ll gethash(int l,int r){
+	ll getHash(int l,int r){
 		return (MOD-(hashf[r+1]*power[r-l+1])%MOD+hashf[l])%MOD;
 	}
 
@@ -31,7 +33,7 @@ public:
 	cin>>s;
 	int n = s.length();
 	
-	hsh(s, n);
+	makeHash(s, n);
 	
 	vector<vector<pair<int,int>>, vector<pair<int,int>>> queries{
 		{	{1,3}, {5,7}},
@@ -45,12 +47,28 @@ public:
 			cnt++;
 		note: this will take O(quries*(max(len(substring))))
 		*/
-		ll ss1 = gethash(s1l, s1r);
-		ll ss2 = gethash(s2l, s2r);
+		ll ss1 = getHash(s1l, s1r);
+		ll ss2 = getHash(s2l, s2r);
 		if(ss1==ss2)
 			cnt++;
 		// this will take O(quries time)+O(preprocessing time)
 	}
 }
 
+// GENERATING STRING PERMUTATION USING IN lexicographically ORDER
+vector<string> findStringPermutation(string str){
+	string temp = str;
+	vector<string> str_per;
+	
+	// Sort the string in lexicographically 
+	// ascending order 
+	sort(str.begin(), str.end()); 
 
+	// Keep printing next permutation while there 
+	// is next permutation 
+	do { 
+			str_per.pb(str);
+	} while (next_permutation(str.begin(), str.end())); 
+
+	return str_per;
+}
