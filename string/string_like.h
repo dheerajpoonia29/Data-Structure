@@ -54,21 +54,3 @@ public:
 		// this will take O(quries time)+O(preprocessing time)
 	}
 }
-
-// GENERATING STRING PERMUTATION USING IN lexicographically ORDER
-vector<string> findStringPermutation(string str){
-	string temp = str;
-	vector<string> str_per;
-	
-	// Sort the string in lexicographically 
-	// ascending order 
-	sort(str.begin(), str.end()); 
-
-	// Keep printing next permutation while there 
-	// is next permutation 
-	do { 
-			str_per.pb(str);
-	} while (next_permutation(str.begin(), str.end())); 
-
-	return str_per;
-}

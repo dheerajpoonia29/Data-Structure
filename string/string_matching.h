@@ -120,25 +120,26 @@ class KMP{
 public:
 	vector<size_t> preProcessing(const string & pat)
 	{
-			vector<size_t> table(pat.size() + 1, -1);
+			// LPS ARRAY : LONGEST PREFIX WHICH IS ALSO A SUFFIX
+			vector<size_t> lps(pat.size() + 1, -1);
 			for(size_t i = 1; i <= pat.size(); i++)
 			{
-					size_t position = table[i - 1];
+					size_t position = lps[i - 1];
 					
 					while(position != -1 && pat[position] != pat[i - 1])
-							position = table[position];
+							position = lps[position];
 
-					table[i] = position + 1;
+					lps[i] = position + 1;
 			}
 
-			return table;
+			return lps;
 	}
 
 	size_t matchUsingKMP(const string & txt, const string & pat)
 	{
 			size_t idx = -1;
 			
-			const vector<size_t> table = preProcessing(pat);
+			const vector<size_t> lps = preProcessing(pat);
 
 			size_t txti = 0;
 			size_t pati = 0;
@@ -149,7 +150,7 @@ public:
 			while(txti < txtSize)
 			{
 					while(pati != -1 && (pati == patSize || pat[pati] != txt[txti]))
-							pati = table[pati];
+							pati = lps[pati];
 
 					pati++;
 					txti++;
