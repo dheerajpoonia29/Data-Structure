@@ -1,20 +1,21 @@
 //#include "string/string_matching.h"
 //#include "string/string_sorting.h"
-#include "string/string_top_20.h"
-
-int do_it(int,int);
+//#include "string/string_top_20.h"
+//#include "3 linked list/ll_basic.h"
+//#include "3 linked list/ll_top20.h"
+//#include "3 linked list/ll_other.h"
+#include "4 stack/stack_basic.h"
 
 int main()
 {
 	hello world
 
-	px(q16("aadcddyddcxyyxcdd"));  // aa_d dcd_d ddydd_c ddcxyyxcdd =: 10 ddcxyyxcdd
-	px(q16("aadcdddyddcxcddcxddcxcddz"));  // aa_d dcd_d ddd_y ddydd_c cxc_d xcddcx ddcxcdd_z =: 7 ddcxcdd
-	px(q16("abaxabaxabb")); // aba_x, axa_b, baxab_a, aba_x, abaxaba_x, ,xabax_b, axabaxa_b
+	StackUsingLinkedList st;
+	st.Push(10);
+	st.Push(20);
+	px(st.Top());
+	px(st.IsEmpty());
+	st.Print();
 
 	return 0;
-}
-
-int do_it(int a, int b){
-	
 }

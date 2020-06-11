@@ -319,7 +319,7 @@ class BinarySearchTree: public Recursive, public Iterative{
 
     int *arr, n, i;
 
-public:
+	public:
 
     BstNode* root;
 
@@ -337,7 +337,7 @@ public:
         DBsep2()
     }
 
-//done
+	//done
     build(string implement_choice){
         i=0;
         if(implement_choice.compare("recursive")==0){
@@ -405,17 +405,17 @@ public:
         }
         cout<<"\n";
     }
-//done
+	//done
     string searchEle(string implement_choice, int key){
         if(implement_choice.compare("recursive")==0)    return searchRec(root, key)? "found" : "not found";
         else    return searchIte(root,key)? "found" : "not found";
     }
-//done
+	//done
     int searchMinMaxEle(string implement_choice, int choice){
         if(implement_choice.compare("recursive")==0)  if(choice) return searchMaxRec(root); else return searchMinRec(root);
         else  if(choice) return searchMaxIte(root); else return searchMinIte(root);
     }
-//done
+	//done
     int heightOfNode(string implement_choice, int node_x){
         if(implement_choice.compare("recursive")==0)  return heightRec(root,node_x);
         else  return heightIte(root,node_x);
