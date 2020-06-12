@@ -120,6 +120,16 @@ class StackUsingLinkedList{
 		}
 		cout<<"\n";
 	}
-	
 
 };
+
+
+/*
+Push(2);Print();
+	Push(5);Print();
+	Push(10);Print();
+	Pop();Print();
+	Push(12);Print();
+*/
+
+

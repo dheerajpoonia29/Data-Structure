@@ -4,18 +4,15 @@
 //#include "3 linked list/ll_basic.h"
 //#include "3 linked list/ll_top20.h"
 //#include "3 linked list/ll_other.h"
-#include "4 stack/stack_basic.h"
+//#include "4 stack & queue/stack_basic.h"
+#include "4 stack & queue/queue_basic.h"
 
 int main()
 {
 	hello world
 
-	StackUsingLinkedList st;
-	st.Push(10);
-	st.Push(20);
-	px(st.Top());
-	px(st.IsEmpty());
-	st.Print();
+	 StackUsingArray s; // creating an instance of Queue. 
+   
 
 	return 0;
 }

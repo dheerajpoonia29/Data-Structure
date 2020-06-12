@@ -74,6 +74,7 @@ class SinglyLinkedList{
 			head = head->next;
 			*/
 			// now previously head pointer still exist - DOUBT!
+			// 13:10 check this <https://www.youtube.com/watch?v=A5_XdiK4J8A&list=PL2_aWCzGMAwI3W_JlcBbtYTwiQSsOTa6P&index=24>
 			singlyNode* temp = head;
 			head->data = 0;
 			head = head->next;

@@ -1,0 +1,2 @@
+// https://codinginterviewquestionsans.blogspot.com/p/top-20-queue-interview-questions.html
+#note: question are not purely of queue, question including algorithm implementation by using queue so its bettwe to attempt when all topic covered 
