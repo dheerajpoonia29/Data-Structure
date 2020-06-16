@@ -1,5 +1,5 @@
 //https://codinginterviewquestionsans.blogspot.com/p/top-20-stack-interview-questions.html
-#good question : ques4, ques7, ques11
+#good question : ques1, ques4, ques7, ques11, ques17, ques19
 #to-do : ques15(done)
 
 // Q1: CODE SPECIAL STACK (GETMIN()->RETURN MIN ELE IN o(1), ELSE SIMILAR AS STACK)
@@ -14,14 +14,17 @@ m1: tc(1):for getting min ele,  sc(n)
 
 better approach: tc(1) sc(1):spaced optimzed version
 	* reference = https://www.geeksforgeeks.org/design-a-stack-that-supports-getmin-in-o1-time-and-o1-extra-space/
+	* vidoe : https://www.youtube.com/watch?v=ZvaRHYYI0-4&list=PL_z_8CaSLPWdeOezg68SKkeLN4-T_jNHd&index=11
 	* instead of using min stack (auxilliary stack) we use variable minEle variable 
 	* idea:
 		* push x 
 			 case 1: x>minEle push(x)
 			 case 2: x<minEle push(2x-minEle)
 		* pop 
-			 case 1: top()==minEle, new minEle = top()
-			 case 2: top()<minEle , new minEle = 2*top()-minEle
+			 // logic is here 
+			 // we have to reterive previous min element 
+			 previous min = 2*minEle-st.top() 
+			 st.pop()
 
 
 
@@ -90,7 +93,7 @@ m1: tc(n) sc(n)
 
 
 
-// Q6: NEXT GREATER ELEMENT 
+// Q6: NEXT GREATER LEFT, ELEMENT 
 /*_________________________
 m1: tc(1) sc(stack)
 	* iterate array
@@ -187,6 +190,13 @@ better approach: tc(n) sc(stack)
 						note: on every pop, update minHeight = min(minHeight, st.top())
 						after while 
 						take ans step1
+m2: 
+	* given height[] array
+	* find pattern nsl, lsr, lgl, lgr 
+	* in this question we find nsl, nsr 
+	* find width array width[i] = nsr[i]-nsl[i]-1 
+	* find area[i] = width[i]*height[i]
+	* return max_element(arr.all)
 
 
 
@@ -326,4 +336,68 @@ m1: tc(1) sc(stack)
 
 
 // Q17: REVERSE STACK WITHOUT USING EXTRA SPACE IN O(N) 
+m1: tc(1) sc(1)
+	* if stack is implemented using linked list  
+	* top->next = nullptr;
+	* top = head
+note: array implmenetation of stack 
+
+m2: tc(n) sc(1 auxilliary stack) 
+	* iterative + auxilliary stack
+	* while(st.empty()!=0)
+			* ast.push(st.top())
+	* ast is reverse stack 
+
+note: if ask only to do this using recursion 
+m3: tc(n+n) sc(2 recursion stack) 
+	*https://www.youtube.com/watch?v=dQsZP8UvHVk
+	* recursion + 2 recursion stack 
+	* |1 2 3 4 
+	* call reverse recursion 
+	* this will return 4, 3, 2 ,1(most current pop)
+	* revers(){
+		if(st.empty!=1){
+			x = st.top()
+			st.pop()
+			reverse()
+			insert(x)
+		}
+	}
+	* problem: 1 is most current pop if we just push into stack then it goes again at bottom so we need one more recursive stack 
+	* call another function name as insert 
+	* insert recieve pop element from reverse function receive in this order 4(begg reach this), 3, 2, 1(last reached)
+	* so now we have to use another recursion on insert function so that we receive in this ordre 1, 2, 3, 4(last reached)
+	* insert(int x){
+		a = st.top()
+		st.pop()
+		insert(x)
+		st.push(a)
+	}
+
+note: if we ask only to this sc(1)
+m4: tc(n) sc(1)
+	* linked list 
+	* so method 1 is voilating the condition of stack
+	* because in stack there is only 1 pointer names as top in linked list 
+	* now simple but we do is reverse linked list in O(n)
+	* technique used in swap/changing the pointer 
+
+
+
+// Q18: NEAREST SMALLEST ELEMENT 
+m1: tc(n) sc(stack) 
+	* already done 
+
+
+
+// Q19: RAIN WATER TRAPPED 
+compute how much water it is able to trap after raining.
 m1: 
+	* https://www.youtube.com/watch?v=FbGG2qpNp4U&list=PL_z_8CaSLPWdeOezg68SKkeLN4-T_jNHd&index=9
+	* find water bound 2 building using ngl & ngr 
+	* actual water store between these two building water[i] = min(ngl,ngr) - build_height[i]
+	* note: ngl, ngr is wrong because we take heighest building height on right but ngr give next grater right
+
+
+
+// Q20: SIMPLIFY DIRECTORY PATH
