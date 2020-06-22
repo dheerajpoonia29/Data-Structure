@@ -39,7 +39,7 @@ int findFactorial(int n) {
 }
 
 
-// FIND FIBONACCI
+// FIND FIBONACCI : 1, 1, 2, 3, 5, 8
 int findFibonacci(int n) {
   // base case
   if (n == 0 || n == 1) 
