@@ -9,16 +9,26 @@
 //#include "4 stack & queue/queue_basic.h"
 //#include "4 stack & queue/stack_pattern.h"
 //#include "5 hashing/hashing_ib.h"
-#include "6 recursion/recursion_basic.h"
+//#include "6 recursion/recursion_basic.h"
 //#include "6 recursion/recursion_interview_ques.h"
-
-
-
+#include "9 graph/graph_basic.h"
 
 int main()
 {
-	
-	px(findFibonacci(5));
+	vector<vector<int>> G{
+		{0,1,1,0,0,0},
+		{1,0,0,1,1,0},
+		{1,0,0,0,1,0},
+		{0,1,0,0,1,1},
+		{0,1,1,1,0,1},
+		{0,0,0,1,1,0}
+	};
+	//graphToAdjList(G);
+
+	vector<int> path = bfs(G);
+	pv(path);
+	path = dfs(G);
+	pv(path);
 
 	return 0;
 }
