@@ -9,26 +9,23 @@
 //#include "4 stack & queue/queue_basic.h"
 //#include "4 stack & queue/stack_pattern.h"
 //#include "5 hashing/hashing_ib.h"
-//#include "6 recursion/recursion_basic.h"
+#include "6 recursion/recursion_basic.h"
 //#include "6 recursion/recursion_interview_ques.h"
-#include "9 graph/graph_basic.h"
+//#include "9 graph/graph_basic.h"
 
 int main()
 {
-	vector<vector<int>> G{
-		{0,1,1,0,0,0},
-		{1,0,0,1,1,0},
-		{1,0,0,0,1,0},
-		{0,1,0,0,1,1},
-		{0,1,1,1,0,1},
-		{0,0,0,1,1,0}
-	};
-	//graphToAdjList(G);
-
-	vector<int> path = bfs(G);
-	pv(path);
-	path = dfs(G);
-	pv(path);
-
-	return 0;
+	
+	stack<int> st;
+	st.push(1);
+	st.push(2);
+	st.push(3);
+	st.push(4);
+	st.push(5);
+	pstk(st);
+	reverseStack(st);
+	px("after");
+	pstk(st);
+	
+	return 0;	
 }

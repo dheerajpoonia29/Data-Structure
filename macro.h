@@ -66,7 +66,7 @@ using namespace std;
 #define ub(vec,key,l,r) 				(upper_bound(vec.begin()+l, vec.end()-r, key) - vec.begin());
 
 template <class t>
-void padt(stack<t> st){
+void pstk(stack<t> st){
 	cout<<"\nstack: ";
 	while(!st.empty()){
 		cout<<st.top()<<" ";
