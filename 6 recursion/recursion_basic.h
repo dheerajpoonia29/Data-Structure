@@ -39,7 +39,6 @@ int	pattern4(string a, string b, int n, int m){
 
 		// recursive case 			
 		return max(pattern4(a, b, n-1, m) ,pattern4(a, b, n, m-1));
-		}
 }
 
 int	pattern5(string a, string b, int n, int m){
@@ -51,8 +50,7 @@ int	pattern5(string a, string b, int n, int m){
 
 		// recursive case 			
 		return pattern5(a, b, n-1, m);
-		return pattern5(a, b, n, m-1);
-		}
+		return pattern5(a, b, n, m-1);		
 }
 
 // FIND FACTORIAL
@@ -153,146 +151,17 @@ void reverseArray(T &a, int low, int high){
 }
 
 
-// INSERT USING RECURSION AT SORTED POSITION 
-/*
-given array insert ele at its sorted position 
-arr = 0,1,5 ele = 2 
-result = 0,1,2,5
-*/
-void insertInArrAtSortedPos(vi &arr, int ele){
-	// base condition 
-	if(arr.size()==0 || arr[arr.size()-1]<=ele){
-		arr.push_back(ele);
-		return;
-	}
 
-	// hypothesis step
-	int val = arr[arr.size()-1];
-	arr.pop_back();
-
-	// recursive case / induction step
-	insertInArrAtSortedPos(arr, ele);
-		
-	arr.push_back(val);
-	return;
-}
-
-
-// SORT ARRAY BY RECUSRION 
-//https://www.youtube.com/watch?v=AZ4jEY_JAVc&list=PL_z_8CaSLPWeT1ffjiImo0sYTcnLzo-wY&index=6
-void sortArr(vi &arr){
+// SIZE OF LONGEST COMMON SUBSTRING 
+int lcs(string a, string b, int n, int m, int len){
 	// base case 
-	if(arr.size()==1)
-		return; 
-	
-	// hypothesis 
-	int temp = arr[arr.size()-1];
-	arr.pop_back();
+		if(n==0 || m==0)
+			return len;
 
-	// recursive case 
-	sortArr(arr);
+		if(a[n-1]==b[n-1]){
+			len += 1;
+			return lcs(a, b, n-1, m-1, len);
+		}
 
-	// induction 
-	insertInArrAtSortedPos(arr, temp);
-	return;
-}
-
-
-// INSERT IN STACK USING RECUSION 
-void insertInStackAtSortedPos(stack<int> &st, int ele){
-	// base case 
-	if(st.empty() || st.top()<=ele){
-		st.push(ele);
-		return;
-	}
-
-	// hypothesis 
-	int temp = st.top();
-	st.pop();
-
-	// recursive / induction both mean same 
-	insertInStackAtSortedPos(st, ele);
-
-	st.push(temp);	
-	return;
-}
-
-
-// SORT A STACK USING RECURSION 
-void sortStack(stack<int> &st){
-	// base case 
-	if(st.empty()){
-		return;
-	}
-
-	// hypothesis 
-	int temp = st.top();
-	st.pop();
-	sortStack(st);
-
-	// recursive / induction step 
-	insertInStackAtSortedPos(st, temp);
-	return;
-}
-
-
-// DELETE MIDDLE OF STACK 
-void stackDeleteKthTopEle(stack<int> &st, int k){
-	// base case  
-	if(k==1){
-		st.pop();
-		return;
-	}
-	
-	// hypothesis
-	int temp = st.top();
-	st.pop();
-
-	// induction
-	stackDeleteKthTopEle(st, k-1);
-	st.push(temp);
-}
-
-
-
-// REVERSE STACK USING RECURSION : with using extra space 
-stack<int> axstk;
-void reverseStackUsingAuxi(stack<int> &st){
-	if(st.empty())
-		return;
-	
-	axstk.push(st.top());
-	st.pop();
-	
-	reverseStackUsingAuxi(st);
-
-	pstk(axstk);
-}
-
-
-
-// REVERSE STACK USING RECURSION : without using extra space 
-void reverse(stack<int> &st, int ele){
-	if(st.empty()){
-		st.push(ele);
-		return;
-	}
-
-	int temp = st.top();
-	st.pop();
-
-	reverse(st, ele);
-	st.push(temp);
-}
-
-void reverseStack(stack<int> &st){
-	if(st.empty()){
-		return;
-	}
-
-	int temp = st.top();
-	st.pop();
-
-	reverseStack(st);
-	reverse(st, temp);
+		return max(len, max(lcs(a, b, n-1, m, 0), lcs(a, b, n, m-1, 0)));		
 }

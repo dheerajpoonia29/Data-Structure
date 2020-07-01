@@ -16,16 +16,10 @@
 int main()
 {
 	
-	stack<int> st;
-	st.push(1);
-	st.push(2);
-	st.push(3);
-	st.push(4);
-	st.push(5);
-	pstk(st);
-	reverseStack(st);
-	px("after");
-	pstk(st);
+	int res=0;
+	string a="babqprcdn", b="cabqprzcdn";
+	res = lcs(a,b, a.size(), b.size(), res);
+	px(res);
 	
 	return 0;	
 }
