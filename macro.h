@@ -1,5 +1,7 @@
 #include <bits/stdc++.h>
 using namespace std;
+// udpate date: 7/1/2020
+// line: 84
 
 //------------------------- syntax shortening ----------------------
 #define ll                  long long int
@@ -27,6 +29,7 @@ using namespace std;
 #define ps(s)	            printf("%s\n",s)
 
 #define decMatrix(r,c)      int **mat;   mat = new int *[r];   for(int i = 0; i <r; i++){ mat[i] = new int[c]; int j=0; fo(j,c) mat[i][j]=0; }
+#define decVecMat(r,c,fill)			vector<vector<int>>vm(r, vector<int>(c, fill));
 
 //---------------------- loop shortening macro ------------------
 #define ff(i,n)             for(i;i<n;i++)
@@ -41,7 +44,8 @@ using namespace std;
 #define pxyzw(x,y,z,w)     	cout << #x << "=" << x << ",\t" << #y << "=" << y << ",\t" << #z << "=" << z << ",\t" << #w << "=" << w << endl
 
 #define pa(arr,n)        		cout<< #arr << "=" ; for(int i=0;i<n;i++) cout<< arr[i] <<" "; cout<< endl
-#define pm(mat)      		cout<< #mat << "=" << endl;  for(int i=0; i<mat.size(); i++){ pv(mat[i]); } cout<<endl
+#define pvMat(vMat)      		cout<< #vMat << "= \n";  for(auto v: vMat){ pv(v); } cout<<endl
+#define paMat(aMat, n, m)		cout<< #aMat <<" = \n";  for(int i=0; i<n; i++){	for(int j=0; j<m; j++)	cout<<aMat[i][j]<<" "; cout<<endl; }
 
 #define pv(vec)          		cout<< #vec << "=" ; for(auto ele: vec)  cout<< ele <<" ";  cout<< endl
 #define pvp(vec)						cout<< #vec << "=\n" ; for(auto v: vec)	cout<< v.first <<":"<< v.second << endl;	 cout<< endl
@@ -65,12 +69,22 @@ using namespace std;
 #define lb(vec,key,l,r) 				(lower_bound(vec.begin()+l, vec.end()-r, key) - vec.begin());  
 #define ub(vec,key,l,r) 				(upper_bound(vec.begin()+l, vec.end()-r, key) - vec.begin());
 
+
+//--------------------- usefull function ------------------------
 template <class t>
-void pstk(stack<t> st){
+void pStk(stack<t> st){
 	cout<<"\nstack: ";
 	while(!st.empty()){
 		cout<<st.top()<<" ";
 		st.pop();
 	}
 	cout<<"\n";
+}
+
+void inline cp(){
+#ifndef ONLINE_JUDGE
+	ios_base::sync_with_stdio(0); cin.tie(0); cout.tie(0);
+	freopen("input.txt", "r", stdin);
+	freopen("output.txt", "w", stdout);
+	#endif 
 }

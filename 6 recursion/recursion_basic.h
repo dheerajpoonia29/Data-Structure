@@ -1,4 +1,6 @@
 //Tail recursion, backtracking, and other core recursive concepts
+//https://www.techiedelight.com/find-ways-calculate-target-elements-array/
+
 #include "../macro.h"
 int memo[100];
 
