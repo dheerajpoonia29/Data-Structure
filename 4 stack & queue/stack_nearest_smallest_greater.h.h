@@ -102,3 +102,39 @@ vector<int> findNGR(vector<int> arr) {
     
     return ngr;
 }
+
+
+
+// FARTHEST GREATER IN RIGHT
+/*
+v=1 5 4 8 3 
+fgr=3 8 8 -1 -1 
+
+
+v=1 4 7 4 5 8 4 1 2 6 
+fgr=2 5 8 5 6 -1 6 2 6 -1 
+*/
+vector<int> findFGR(vector<int> v) {
+    priority_queue<pair<int, int>, vector<pair<int, int>>, greater<pair<int, int>>> st;
+    
+    vector<int> ngr(v.size(),0);
+
+    for(int i=v.size()-1; i>=0; i--){
+
+        priority_queue<pair<int, int>, vector<pair<int, int>>, greater<pair<int, int>>> temp = st;
+
+        while(!temp.empty() && temp.top().first<=v[i])
+            temp.pop();
+            
+        if(temp.empty()){            
+            ngr[i] = -1;
+        }
+        else{
+            ngr[i] = temp.top().second;
+        }
+
+        st.push(mp(v[i], i));
+    }
+    
+    return ngr;
+}
